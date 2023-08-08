@@ -1,4 +1,5 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin'); // Добавили плагин
 const path = require('path');
 
 module.exports = {
@@ -12,7 +13,7 @@ module.exports = {
     rules: [
       {
         test: /\.css$/i,
-        use: ['style-loader', 'css-loader'],
+        use: [MiniCssExtractPlugin.loader, 'css-loader'], // Используем MiniCssExtractPlugin.loader
       },
       {
         test: /\.(png|jpe?g|gif)$/i,
@@ -28,11 +29,12 @@ module.exports = {
     new HtmlWebpackPlugin({
       template: './index.html',
     }),
+    new MiniCssExtractPlugin({ filename: 'style.css' }), // Добавили плагин
   ],
   devServer: {
     static: {
       directory: path.resolve(__dirname, 'dist'),
-      publicPath: '/' // Добавлено это
+      publicPath: '/'
     },
     open: true,
   },

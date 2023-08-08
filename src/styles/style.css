@@ -1,6 +1,31 @@
+body {
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #f0f0f0;
+}
+
+.popover-container {
+  position: relative;
+  text-align: center;
+}
+
+.red-button {
+  background-color: red;
+  color: white;
+  width: 300px;
+  height: 50px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  position: relative;
+}
+
 .popover {
   position: absolute;
-  top: calc(100% + 5px);
+  top: calc(100% + 10px);
   left: 50%;
   transform: translateX(-50%);
   background-color: #fff;
@@ -12,6 +37,6 @@
   display: none;
 }
 
-.popover.show {
+.red-button:focus + .popover {
   display: block;
 }

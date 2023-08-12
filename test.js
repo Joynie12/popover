@@ -7,10 +7,8 @@ const puppeteer = require('puppeteer');
 
   await page.click('#popoverButton');
 
-  // Ожидание появления popover'а (замените этот селектор на селектор вашего popover'а)
   await page.waitForSelector('.popover');
 
-  // Проверка текста внутри popover'а
   const popoverText = await page.$eval('.popover', el => el.textContent);
   if (popoverText.includes('This is the popover content')) {
     console.log('Popover contains expected text.');
